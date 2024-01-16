@@ -1,0 +1,33 @@
+# Ignore compiled binaries
+bin/
+*.exe
+*.out
+*.so
+*.dll
+
+# Ignore generated project files
+*.make
+*.makefile
+*.workspace
+*.sln
+*.vcxproj
+*.xcodeproj
+
+# Ignore temporary files and directories
+obj/
+*.o
+*.obj
+*.dSYM/
+.vscode/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userprefs
+*.sdf
+
+# Ignore Premake generated files
+premake5.lua
+
+# Ignore macOS system files
+.DS_Store
