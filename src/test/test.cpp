@@ -2,6 +2,6 @@
 
 #include <cstdio>
 
-void foo() { printf("Hi!\n"); }
+void foo() { printf("Hello!!!!\n"); }
 
-int bar = 5;
+int bar = 66;

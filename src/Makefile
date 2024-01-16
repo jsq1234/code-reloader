@@ -9,29 +9,21 @@ ifndef verbose
 endif
 
 ifeq ($(config),debug)
-  reloader_config = debug
   main_config = debug
   test_config = debug
 endif
 ifeq ($(config),release)
-  reloader_config = release
   main_config = release
   test_config = release
 endif
 
-PROJECTS := reloader main test
+PROJECTS := main test
 
 .PHONY: all clean help $(PROJECTS) 
 
 all: $(PROJECTS)
 
-reloader:
-ifneq (,$(reloader_config))
-	@echo "==== Building reloader ($(reloader_config)) ===="
-	@${MAKE} --no-print-directory -C . -f reloader.make config=$(reloader_config)
-endif
-
-main: reloader
+main:
 ifneq (,$(main_config))
 	@echo "==== Building main ($(main_config)) ===="
 	@${MAKE} --no-print-directory -C . -f main.make config=$(main_config)
@@ -44,7 +36,6 @@ ifneq (,$(test_config))
 endif
 
 clean:
-	@${MAKE} --no-print-directory -C . -f reloader.make clean
 	@${MAKE} --no-print-directory -C . -f main.make clean
 	@${MAKE} --no-print-directory -C . -f test.make clean
 
@@ -58,7 +49,6 @@ help:
 	@echo "TARGETS:"
 	@echo "   all (default)"
 	@echo "   clean"
-	@echo "   reloader"
 	@echo "   main"
 	@echo "   test"
 	@echo ""
